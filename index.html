@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Feliz Aniversário, Samara! Uma surpresa especial feita com muito amor." />
+    <title>Feliz Aniversário, Samara! 💖</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-envelope">
+                <div class="envelope-body">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-heart">💌</div>
+                </div>
+            </div>
+            <p class="loading-text">Preparando uma surpresa...</p>
+            <div class="loading-dots" id="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <button class="loading-enter-btn" id="loading-enter-btn">
+                💖 Abrir Surpresa
+            </button>
+        </div>
+    </div>
+
+    <canvas id="stars-canvas"></canvas>
+
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="music-player" id="music-player">
+        <button class="music-nav-btn" id="music-prev" aria-label="Música anterior">⏮</button>
+        <button class="music-btn" id="music-btn" aria-label="Tocar/Pausar Música">
+            <div class="music-disc" id="music-disc">
+                <div class="disc-inner">♪</div>
+            </div>
+            <div class="music-waves" id="music-waves">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </button>
+        <button class="music-nav-btn" id="music-next" aria-label="Próxima música">⏭</button>
+        <span class="music-label" id="music-label">Play</span>
+    </div>
+
+    <audio id="bg-music" preload="auto">
+        <source src="Heart_s_Embrace.mp3" type="audio/mpeg" />
+    </audio>
+
+    <section id="hero" class="section hero-section">
+        <div class="hero-content reveal">
+            <p class="hero-subtitle">✨ Hoje é um dia muito especial ✨</p>
+            <h1 class="hero-title">Feliz Aniversário,<br /><span class="highlight-name">Samara!</span></h1>
+
+            <div class="floating-heart" aria-hidden="true">
+                <div class="heart-shape"></div>
+            </div>
+
+            <p class="hero-message">Cada momento ao seu lado é um presente que a vida me deu.</p>
+
+            <button class="btn-neumorphic scroll-cta"
+                onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+                <span>↓</span> Role para baixo e veja uma surpresa
+            </button>
+        </div>
+    </section>
+
+    <section id="memories" class="section memories-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Ranking das melhores imagens da Samara</h2>
+            <p class="section-subtitle">Cada foto é mais linda que a outra 💕</p>
+        </div>
+
+        <div class="carousel" id="carousel" role="region" aria-label="Carrossel de memórias">
+            <div class="swipe-hint" id="swipe-hint">
+                <span class="swipe-hand">👆</span>
+                <span class="swipe-text">Arraste para o lado →</span>
+            </div>
+            <div class="carousel-track">
+                <div class="memory-card glass-card" data-tilt>
+                    <img class="card-image" src="imgs/SPOILER_temp_image_FD9D4905-2E45-4BD0-AB82-2DE5D49D4795.webp"
+                        alt="Foto da Samara - 1º lugar" loading="lazy" />
+                    <p class="card-text">🥇 1º Lugar - Sugar Mommy</p>
+                </div>
+
+                <div class="memory-card glass-card" data-tilt>
+                    <img class="card-image" src="imgs/SPOILER_1000066432.jpg" alt="Foto da Samara - 2º lugar"
+                        loading="lazy" />
+                    <p class="card-text">🥈 2º Lugar - Giuliana Mafra kkk</p>
+                </div>
+
+                <div class="memory-card glass-card" data-tilt>
+                    <img class="card-image" src="imgs/SPOILER_IMG_2673.png" alt="Foto da Samara - 3º lugar"
+                        loading="lazy" />
+                    <p class="card-text">🥉 3º Lugar - Sorriso Gostoso Delicioso</p>
+                </div>
+
+                <div class="memory-card glass-card" data-tilt>
+                    <img class="card-image" src="imgs/SPOILER_IMG_5205.png" alt="Foto da Samara - 4º lugar"
+                        loading="lazy" />
+                    <p class="card-text">🏅 4º Lugar - Lábios Carnudos 👄</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
+
+    <section id="timeline-section" class="section timeline-section">
+        <div class="timeline-content reveal">
+            <h2 class="section-title">Nossa História</h2>
+            <p class="section-subtitle">Os momentos que nos trouxeram até aqui 💫</p>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">19 Jan 2026</span>
+                        <p class="timeline-text">O começo de tudo ✨</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Primeiro Encontro (call)</span>
+                        <p class="timeline-text">O dia que mudou tudo 🦋</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Primeira Risada</span>
+                        <p class="timeline-text">Quando percebi que era especial 😂</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <span class="timeline-date">Hoje</span>
+                        <p class="timeline-text">Um novo capítulo começa 💖</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="counter-section" class="section counter-section">
+        <div class="counter-content reveal">
+            <h2 class="section-title">Construindo nossa história há</h2>
+            <p class="section-subtitle">E cada segundo vale a pena ✨</p>
+
+            <div class="counter-grid">
+                <div class="counter-block glass-card">
+                    <span class="counter-number" id="counter-days">0</span>
+                    <span class="counter-label">Dias</span>
+                </div>
+                <div class="counter-block glass-card">
+                    <span class="counter-number" id="counter-hours">0</span>
+                    <span class="counter-label">Horas</span>
+                </div>
+                <div class="counter-block glass-card">
+                    <span class="counter-number" id="counter-minutes">0</span>
+                    <span class="counter-label">Minutos</span>
+                </div>
+                <div class="counter-block glass-card">
+                    <span class="counter-number" id="counter-seconds">0</span>
+                    <span class="counter-label">Segundos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reasons-section" class="section reasons-section">
+        <div class="reasons-content reveal">
+            <h2 class="section-title">10 Motivos Pelos Quais<br />Eu Te Amo</h2>
+            <p class="section-subtitle">Toque em cada número para descobrir 💗</p>
+
+            <div class="reasons-grid">
+                <button class="reason-btn" data-reason="Sua risada contagiante" aria-label="Motivo 1"
+                    aria-expanded="false">1</button>
+                <button class="reason-btn" data-reason="O seu estilo encantador de falar comigo" aria-label="Motivo 2"
+                    aria-expanded="false">2</button>
+                <button class="reason-btn" data-reason="Sua força e determinação" aria-label="Motivo 3"
+                    aria-expanded="false">3</button>
+                <button class="reason-btn" data-reason="Como você me faz querer ser melhor" aria-label="Motivo 4"
+                    aria-expanded="false">4</button>
+                <button class="reason-btn" data-reason="Os nossos silêncios confortáveis" aria-label="Motivo 5"
+                    aria-expanded="false">5</button>
+                <button class="reason-btn" data-reason="Seu abraço, meu lugar favorito (o que eu mais quero)"
+                    aria-label="Motivo 6" aria-expanded="false">6</button>
+                <button class="reason-btn" data-reason="Sua inteligência me encanta (kkkkkk)" aria-label="Motivo 7"
+                    aria-expanded="false">7</button>
+                <button class="reason-btn" data-reason="Como você cuida de quem ama" aria-label="Motivo 8"
+                    aria-expanded="false">8</button>
+                <button class="reason-btn" data-reason="Seu sorriso ilumina meu dia" aria-label="Motivo 9"
+                    aria-expanded="false">9</button>
+                <button class="reason-btn" data-reason="Porque com você tudo faz sentido ❤️" aria-label="Motivo 10"
+                    aria-expanded="false">10</button>
+            </div>
+
+            <p class="reason-reveal-text" id="reason-text" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <section id="letter-section" class="section letter-section">
+        <div class="letter-content reveal">
+            <h2 class="section-title">Uma carta pra você</h2>
+            <div class="letter-paper glass-card">
+                <div class="letter-body" id="letter-body" aria-live="polite"></div>
+                <div class="letter-cursor" id="letter-cursor">|</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cake-section" class="section cake-section">
+        <div class="cake-content reveal">
+            <h2 class="section-title">Faça um pedido! 🎂</h2>
+            <p class="section-subtitle">Sopre no microfone para apagar as velas 🕯️</p>
+
+            <div class="cake-wrapper">
+                <div class="cake">
+                    <div class="candles">
+                        <div class="candle" data-lit="true">
+                            <div class="flame">🔥</div>
+                            <div class="candle-body"></div>
+                        </div>
+                        <div class="candle" data-lit="true">
+                            <div class="flame">🔥</div>
+                            <div class="candle-body"></div>
+                        </div>
+                        <div class="candle" data-lit="true">
+                            <div class="flame">🔥</div>
+                            <div class="candle-body"></div>
+                        </div>
+                    </div>
+                    <div class="cake-top"></div>
+                    <div class="cake-middle"></div>
+                    <div class="cake-bottom"></div>
+                    <div class="cake-plate"></div>
+                </div>
+
+                <button class="blow-btn" id="blow-btn" aria-label="Soprar as velas">
+                    🌬️ Toque para soprar!
+                </button>
+                <p class="cake-message" id="cake-message"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="envelope-section" class="section envelope-secret-section">
+        <div class="envelope-secret-content reveal">
+            <h2 class="section-title">Uma surpresa especial 💌</h2>
+            <p class="section-subtitle">Toque no envelope para abrir</p>
+
+            <div class="secret-envelope" id="secret-envelope" role="button" tabindex="0"
+                aria-label="Abrir envelope secreto">
+                <div class="secret-envelope-flap"></div>
+                <div class="secret-envelope-body">
+                    <div class="secret-envelope-icon">💝</div>
+                </div>
+            </div>
+
+            <div class="coupon-card glass-card" id="coupon-card">
+                <div class="coupon-sparkle">✨</div>
+                <h3 class="coupon-title">Cupom de Amor</h3>
+                <div class="coupon-divider"></div>
+                <p class="coupon-text">Vale um jantar à luz de velas 🕯️🍷</p>
+                <p class="coupon-subtext">Válido para sempre • Não tem data de vencimento</p>
+                <div class="coupon-sparkle bottom">✨</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="toggle-section" class="section toggle-section">
+        <div class="toggle-content reveal">
+            <h2 class="section-title">Mas hoje eu quero mudar<br />um pouco as coisas...</h2>
+            <p class="section-subtitle">Clique no interruptor abaixo ✨</p>
+
+            <div class="toggle-wrapper">
+                <div class="toggle-track" id="theme-toggle" role="switch" aria-checked="false" tabindex="0"
+                    aria-label="Alternar para tema romântico">
+                    <div class="toggle-thumb"></div>
+                </div>
+            </div>
+            <p class="toggle-label" id="toggle-label">Tema Claro</p>
+        </div>
+    </section>
+
+    <section id="proposal" class="section proposal-section">
+        <div class="proposal-content reveal">
+            <p class="proposal-intro">Além de celebrar o seu dia, eu tenho uma pergunta importante...</p>
+
+            <h2 class="proposal-question">Quer namorar<br />comigo? 💍</h2>
+
+            <div class="proposal-buttons">
+                <button class="btn-yes" id="btn-yes">
+                    <span class="btn-yes-text">SIM! 💖</span>
+                </button>
+
+                <button class="btn-no" id="btn-no">Não 😶</button>
+            </div>
+
+            <div class="success-message" id="success-message">
+                <div class="success-hearts" aria-hidden="true">💖✨💖</div>
+                <h2 class="success-title">Você me fez o cara mais feliz do mundo!</h2>
+                <p class="success-subtitle">❤️ Eu te amo, Samara! ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="romantic-footer">
+        <div class="footer-hearts" aria-hidden="true">💖</div>
+        <p class="footer-text">Feito com todo amor do mundo</p>
+        <p class="footer-year">pelo melhor namorado do mundo • 2026</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"
+        onerror="console.warn('Confetti CDN failed, using fallback');window.confetti=function(o){};"></script>
+</body>
+
+</html>
